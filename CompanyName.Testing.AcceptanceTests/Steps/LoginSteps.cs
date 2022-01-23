@@ -1,4 +1,9 @@
-﻿using System;
+﻿using CompanyName.Testing.AcceptanceTests.Framework;
+using CompanyName.Testing.AcceptanceTests.Framework.Navigation;
+using CompanyName.Testing.AcceptanceTests.Pages;
+using System;
+using System.Linq;
+using System.Threading.Tasks;
 using TechTalk.SpecFlow;
 
 namespace CompanyName.Testing.AcceptanceTests.Steps
@@ -6,28 +11,41 @@ namespace CompanyName.Testing.AcceptanceTests.Steps
     [Binding]
     public class LoginSteps
     {
-        [Given(@"the first number is (.*)")]
-        public void GivenTheFirstNumberIs(int p0)
+        private readonly Configuration config;
+        private LoginPage loginPage;
+
+
+        public LoginSteps(Configuration config) 
         {
-            
+            this.config = config;
         }
-        
-        [Given(@"the second number is (.*)")]
-        public void GivenTheSecondNumberIs(int p0)
+
+        [Given(@"I navigate to landing page")]
+        public async Task GivenINavigateToLandingPage()
         {
-            
+            await NavigationHelper.NavigateTo<LandingPage>();
         }
-        
-        [When(@"the two numbers are added")]
-        public void WhenTheTwoNumbersAreAdded()
+
+        [When(@"I entered valid username as '(.*)'")]
+        public async Task WhenIEnteredValidUsername(string username)
         {
-            
+            var userData = config.UserData.FirstOrDefault(u => u.UserName == username);
+            loginPage = await NavigationHelper.NavigateTo<LoginPage>();
+            await loginPage.SubmitUserLoginDetails(userData);
+
         }
-        
-        [Then(@"the result should be (.*)")]
-        public void ThenTheResultShouldBe(int p0)
+
+        [When(@"I entered valid password")]
+        public void WhenIEnteredValidPassword()
         {
            
         }
+
+        [Then(@"I should see welcome page")]
+        public void ThenIShouldSeeWelcomePage()
+        {
+           
+        }
+
     }
 }

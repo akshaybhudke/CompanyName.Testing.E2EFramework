@@ -1,9 +1,9 @@
 ﻿Feature: Login
-	Simple calculator for adding two numbers
+	Simple login scenarios added to test
 
 
-Scenario: Add two numbers
-	Given the first number is 50
-	And the second number is 70
-	When the two numbers are added
-	Then the result should be 120
+Scenario: Login as a valid user
+	Given I navigate to landing page
+	When I entered valid username as 'TestUser'
+	And I entered valid password
+	Then I should see welcome page

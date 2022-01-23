@@ -1,0 +1,21 @@
+{
+  "BaseUrl": "https://www.browserstack.com/users/sign_in",
+  "UserData": [
+    {
+      "UserName": "TestUser1",
+      "Login": "TestUser1",
+      "Password": "Password1"
+    },
+    {
+      "UserName": "TestUser2",
+      "Login": "TestUser1",
+      "Password": "Password1"
+    },
+    {
+      "UserName": "Admin",
+      "Login": "Admin1",
+      "Password": "Password1"
+    }
+  ]
+
+}
