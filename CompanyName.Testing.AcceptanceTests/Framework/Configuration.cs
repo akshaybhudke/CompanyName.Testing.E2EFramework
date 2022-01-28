@@ -7,7 +7,7 @@ namespace CompanyName.Testing.AcceptanceTests.Framework
     public class Configuration
     {
         private static readonly string EnvName =
-            Environment.GetEnvironmentVariable("SMOKE_TEST_ENVIRONMENT" ?? "dev");
+            Environment.GetEnvironmentVariable("SMOKE_TEST_ENVIRONMENT") ?? "dev";
 
         public string BaseUrl { get; set; }
 

@@ -15,7 +15,7 @@ namespace CompanyName.Testing.AcceptanceTests.Pages
         private ILocator AccountIcon => Page.Locator("[aria-label='Account']");
 
         private string LoggedUserNameText =>
-            "//a[contains(@class, 'MyAccount_username_name')]";
+            "//a[contains(@class, 'MyAccount_username')]";
 
 
         public async Task SelectAccountMenuItem(string itemName) 
